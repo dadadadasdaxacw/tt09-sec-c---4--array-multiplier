@@ -18,14 +18,14 @@ module tt_um_sec_4bit_adder(
 	wire [3:0] a,b,c;
 	assign a = ui_in[3:0];
 	assign b = ui_in[7:4];
-	assign c =a + b;
+	assign c = a + b;
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
   assign uio_oe  = 0;
 	
   assign uo_out[7:4] = 4'b0;
-  asign uo_out[3:0] = a + b;
+  assign uo_out[3:0] = a + b;
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n,uio_in, 1'b0};
