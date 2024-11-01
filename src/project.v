@@ -30,8 +30,8 @@ module tt_um_c_4_4b_mult(
    
     // splitting up ui_in to q and m
     // ui_in is 8-bits, so splitting into 2 portions of 4-bits each
-    q = ui_in[7:4];
-    m = ui_in[3:0];
+    assign q = ui_in[7:4];
+    assign m = ui_in[3:0];
 
     // Generate the partial products (AND gates)
     assign pp0 = {4{q[0]}} & m;  // q[0] * m
