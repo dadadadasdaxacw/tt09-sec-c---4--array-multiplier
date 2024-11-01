@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "4bit adder"    # Project title
+  title:        "4bit multiplier" # Project title
   author:       "Kylian Yan"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "tiny tapeout"      # One line description of what your project does
@@ -11,7 +11,7 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_sec_4bit_adder"
+  top_module:  "tt_um_c_4_4b_mult"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -22,24 +22,24 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
   # Inputs
-  ui[0]: "a[0]"
-  ui[1]: "a[1]"
-  ui[2]: "a[2]"
-  ui[3]: "a[3]"
-  ui[4]: "b[0]"
-  ui[5]: "b[1]"
-  ui[6]: "b[2]"
-  ui[7]: "b[3]"
+  ui[0]: "q[0]"
+  ui[1]: "q[1]"
+  ui[2]: "q[2]"
+  ui[3]: "q[3]"
+  ui[4]: "m[0]"
+  ui[5]: "m[1]"
+  ui[6]: "m[2]"
+  ui[7]: "m[3]"
 
   # Outputs
-  uo[0]: "c[0]"
-  uo[1]: "c[1]"
-  uo[2]: "c[2]"
-  uo[3]: "c[3]"
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "p[0]"
+  uo[1]: "p[1]"
+  uo[2]: "p[2]"
+  uo[3]: "p[3]"
+  uo[4]: "p[4]"
+  uo[5]: "p[5]"
+  uo[6]: "p[6]"
+  uo[7]: "p[7]"
 
   # Bidirectional pins
   uio[0]: ""
