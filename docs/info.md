@@ -8,13 +8,11 @@ You can also include images in this folder and reference them in the markdown. E
 --> a 4 bit adder
 
 ## How it works
-
-Explain how your project works
+we split the input into two portions and assign them to be q and m. The output is p, we then use full adder to achieve the purpose of multiplcaton
 
 ## How to test
-
-Explain how to use your project
+we use idle to tst our cases
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+None
