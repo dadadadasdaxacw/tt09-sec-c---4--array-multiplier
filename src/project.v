@@ -15,24 +15,24 @@ module tt_um_c_4_4b_mult(
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-	wire [3:0] a,b,c;
-	assign a = ui_in[3:0];
-	assign b = ui_in[7:4];
-	assign c = a + b;
-  // All output pins must be assigned. If not used, assign to 0.
-input [3:0] m,   // 4-bit multiplicand
-    input [3:0] q,   // 4-bit multiplier
-    output [7:0] p   // 8-bit product
-);
 
     // Partial products
     wire [3:0] pp0, pp1, pp2, pp3;
-   
+
+    // input and output to multiplier
+    wire[3:0] q, m;
+    wire[7:0] p;
+
     // Intermediate sums and carries
     wire [3:0] sum1, carry1;
     wire [3:0] sum2, carry2;
     wire [3:0] sum3, carry3;
    
+    // splitting up ui_in to q and m
+    // ui_in is 8-bits, so splitting into 2 portions of 4-bits each
+    q = ui_in[7:4];
+    m = ui_in[3:0];
+
     // Generate the partial products (AND gates)
     assign pp0 = {4{q[0]}} & m;  // q[0] * m
     assign pp1 = {4{q[1]}} & m;  // q[1] * m
@@ -59,15 +59,15 @@ input [3:0] m,   // 4-bit multiplicand
     full_adder fa3_1(sum2[2], pp3[1], carry3[0], p[4], carry3[1]);
     full_adder fa3_2(sum2[3], pp3[2], carry3[1], p[5], carry3[2]);
     full_adder fa3_3(carry2[3], pp3[3], carry3[2], p[6], carry3[3]);
-  
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
-	
-  assign uo_out[7:4] = 4'b0;
-  assign uo_out[3:0] = a + b;
+  	
+    // Final output bit (MSB of the product)
+    assign p[7] = carry3[3];
+
+    assign uo_out = p;
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n,uio_in, 1'b0};
+  assign uio_out = 0;
+  assign uio_oe  = 0;
 
 endmodule
