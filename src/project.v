@@ -62,7 +62,7 @@ module tt_um_c_4_4b_mult(
   	
     // Final output bit (MSB of the product)
     assign p[7] = carry3[3];
-
+  
     assign uo_out = p;
 
   // List all unused inputs to prevent warnings
@@ -70,4 +70,15 @@ module tt_um_c_4_4b_mult(
   assign uio_out = 0;
   assign uio_oe  = 0;
 
+endmodule
+
+module full_adder (Cin, x, y, s, Cout);
+     input Cin, x, y;
+     output s, Cout;
+     wire z1, z2, z3;
+     xor (s, x, y, Cin);
+     and (z1, x, y);
+     and (z2, x, Cin);
+     and (z3, y, Cin);
+     or (Cout, z1, z2, z3);
 endmodule
