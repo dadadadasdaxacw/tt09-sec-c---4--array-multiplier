@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_sec_4bit_adder(
+module tt_um_c_4_4b_mult(
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
